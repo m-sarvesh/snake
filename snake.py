@@ -6,8 +6,8 @@ import constants as C
 class SNAKE:
     def __init__(self):
         self.body = [Vector2(C.SNAKE_INIT_X, C.SNAKE_INIT_Y),
-                     Vector2(C.SNAKE_INIT_X+1, C.SNAKE_INIT_Y),
-                     Vector2(C.SNAKE_INIT_X+2, C.SNAKE_INIT_Y),]
+                     Vector2(C.SNAKE_INIT_X-1, C.SNAKE_INIT_Y),
+                     Vector2(C.SNAKE_INIT_X-2, C.SNAKE_INIT_Y),]
         self.direction = C.MOVE_RIGHT
 
     def draw(self):
@@ -22,4 +22,9 @@ class SNAKE:
         head = self.body[0] + self.direction
         new_body.insert(0, head)
         self.body = new_body[:]
-        print(len(self.body))
+
+    def grow(self):
+        new_body = self.body[:]
+        head = self.body[0] + self.direction
+        new_body.insert(0, head)
+        self.body = new_body[:]
