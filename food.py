@@ -13,7 +13,8 @@ class FOOD:
         x_coordinate = self.loc.x * C.CELL_SIZE
         y_coordinate = self.loc.y * C.CELL_SIZE
         food_rect = pg.Rect(x_coordinate, y_coordinate, C.CELL_SIZE, C.CELL_SIZE)
-        pg.draw.rect(C.WINDOW, pg.Color('red'), food_rect)
+        # pg.draw.rect(C.WINDOW, pg.Color('red'), food_rect)
+        C.WINDOW.blit(C.FOOD_IMG, food_rect)
 
     def relocate(self):
         self.x = random.randint(0, C.NUM_OF_CELLS - 1)
